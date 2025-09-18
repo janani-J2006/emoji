@@ -1,38 +1,71 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
+  animation: gradientShift 8s ease infinite;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@keyframes gradientShift {
+  0% {
+    background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
+  }
+  50% {
+    background: linear-gradient(135deg, #f4f7fb, #bbdefb);
+  }
+  100% {
+    background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input[type="text"] {
+  transition: all 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+input[type="text"]:focus {
+  width: 80%;
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74, 144, 226, 0.5);
+  outline: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background: #357abd;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+}
+
+.emoji {
+  cursor: pointer;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.emoji:hover {
+  transform: scale(1.3) rotate(5deg);
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+}
+
+.emoji:active {
+  transform: scale(1.6) rotate(-5deg);
+}
+
+.copy-message {
+  margin-top: 10px;
+  color: green;
+  font-size: 14px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.copy-message.show {
+  opacity: 1;
 }
